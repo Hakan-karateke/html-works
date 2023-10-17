@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>İnput forms</title>
+    <title>GDSC Bingol University Club Başvuru Formu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,90 +22,64 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 0.5s;
         }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1.2em;
-            color: #333;
-            animation: fadeIn 0.5s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        input {
-            padding: 8px;
-            width: 100%;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-            animation: fadeIn 0.5s;
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-            animation: fadeIn 0.5s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="text-center">
+            <img src="https://res.cloudinary.com/startup-grind/image/upload/dpr_2.0,fl_sanitize/v1/gcs/platform-data-dsc/contentbuilder/logo_dark_horizontal_097s7oa.svg" alt="GDSC Bingol University Logo" height="100" width="500">
+            <h2>GDSC Bingol University Club Başvuru Formu</h2>
+        </div>
+
         <form action="/action_page.php">
-            <label for="Chec">Check:</label>
-            <input type="checkbox">
-
-            <label for="color">Color:</label>
-            <input type="color">
-
-            <label for="date">DATE:</label>
-            <input type="date">
-
-            <label for="email">Mail:</label>
-            <input type="email">
-
-            <label for="file">File:</label>
-            <input type="file">
-
-            <label for="image">Image:</label>
-            <input type="image">
-
-            <label for="number">Number:</label>
-            <input type="number">
-
-            <label for="password">Password:</label>
-            <input type="password">
-
-            <label for="text">Text:</label>
-            <input type="text" value="Default value">
-
-            <label for="submit">Submit:</label>
-            <input type="submit">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="firstName">Adınız:</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Adınızı giriniz" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="lastName">Soyadınız:</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Soyadınızı giriniz" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="age">Yaşınız:</label>
+                    <input type="number" class="form-control" id="age" placeholder="Yaşınızı giriniz" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">E-posta Adresiniz:</label>
+                    <input type="email" class="form-control" id="email" placeholder="E-posta adresinizi giriniz" value="@gmail.com.tr" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="motivation">Motivasyon Kaynağınız:</label>
+                <textarea class="form-control" id="motivation" rows="5" placeholder="Motivasyon kaynağınızı buraya yazınız" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="cv">CV Yükle (PDF):</label>
+                <input type="file" class="form-control-file" id="cv" accept=".pdf" required>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="consent" required>
+                <label class="form-check-label" for="consent">Kişisel bilgilerimin ve verilerimin kullanılmasını kabul ediyorum.</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Başvur</button>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function validateForm() {
+            var consentCheckbox = document.getElementById("consent");
+            if (!consentCheckbox.checked) {
+                alert("Lütfen kişisel bilgilerin ve verilerin kullanılmasını kabul edin.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>
